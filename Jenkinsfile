@@ -10,8 +10,8 @@ pipeline {
     }
     stage('Serverless Deploy V') {
       steps {
-        dir("/var/lib/jenkins/workspace/cloud-rchristy-project5_master/backend") {
-          withAWS(credentials: 'rc-serverless', region: 'us-east-2') {
+        withAWS(credentials: 'rc-serverless', region: 'us-east-2') {
+          dir("/var/lib/jenkins/workspace/cloud-rchristy-project5_master/backend") {
             sh '''
               export PATH=/var/lib/jenkins:$PATH
               npm install
