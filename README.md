@@ -4,6 +4,8 @@ This project is a Would You Rather game with a Serverless backend hosted on AWS.
 
 It is a continuation of another one of call900913's React project: [https://github.com/call900913/react-rchristy-project2](https://github.com/call900913/react-rchristy-project2).
 
+And this app also has some cool features on the backend, such as X-Ray Tracing (courtesy of AWS).
+
 To install the game, please do a git clone of this repository to download it into your machine.
 a. You can go to your Terminal or CLI and type in the following:
 ```
