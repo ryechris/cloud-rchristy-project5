@@ -39,6 +39,14 @@ provider:
         - dynamodb:DeleteItem
       Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.QUESTIONS_TABLE}"
 
+custom:
+  documentation:
+    api:
+      info:
+        version: v1.0.0
+        title: React WYR
+        description: API for a React WYR app.
+
 functions:
   AddUser:
     handler: lambda/users/create.handler
