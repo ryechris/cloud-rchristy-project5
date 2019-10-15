@@ -1,5 +1,9 @@
 pipeline {
   agent any
+  environment {
+    AWS_ACCESS_KEY_ID = credentials('jaws-access-key-id')
+    AWS_SECRET_ACCESS_KEY = credentials('jaws-secret-access-key')
+  }
   stages {
     stage('Install Serverless') {
       steps {
@@ -14,10 +18,12 @@ pipeline {
           sh '''
             export PATH=/var/lib/jenkins:$PATH
             npm install
+            serverless config credentials --provider aws --key ${env.AWS_ACCESS_KEY_ID} --secret ${env.AWS_SECRET_ACCESS_KEY} --profile rc-serverless
             serverless deploy -v
             '''
         }
       }
     }
   }
+
 }

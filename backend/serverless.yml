@@ -15,7 +15,7 @@ provider:
   runtime: nodejs10.x
   profile: rc-serverless
   stage: dev
-  region: ${opt:region, 'us-east-2'}
+  region: 'us-east-2'
   environment:
     USERS_TABLE: sls-wyr-users-dev
     QUESTIONS_TABLE: sls-wyr-questions-dev
