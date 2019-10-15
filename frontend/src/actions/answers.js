@@ -22,20 +22,11 @@ export function handleAddAnswer (answerData) {
 }
 
 
-
-
 /*
-
-  {
-    authedUser,
-    answer,
-    id: question.id
-  }
-
-  this.props.dispatch(handleAddAnswer({
-    authedUser,
-    answer,
-    id: question.id
-  }))
-
- */
+this.props.dispatch(handleAddAnswer({
+  authedUser,
+  answer,
+  id: question.id
+}))
+}
+*/

@@ -1,6 +1,7 @@
 import { RECEIVE_USERS } from '../actions/users'
 import { ADD_QUESTION } from '../actions/questions'
 import { ADD_ANSWER } from '../actions/answers'
+import { ADD_USER } from '../actions/authedUser'
 
 export default function (state = {}, action) {
   switch(action.type) {
@@ -8,6 +9,14 @@ export default function (state = {}, action) {
       return {
         ...state,
         ...action.users
+      }
+    case ADD_USER :
+      return {
+        ...state,
+        [action.user.id]: {
+          ...action.user,
+          answers: Object.keys(action.user.answers)
+        }
       }
     case ADD_QUESTION :
       const { author, id } = action.question
@@ -20,6 +29,7 @@ export default function (state = {}, action) {
       }
     case ADD_ANSWER :
       const user =  state[action.authedUser]
+      console.log('ADDING ANSWER ADD ADD: ', state)
       return {
         ...state,
         [action.authedUser]: {

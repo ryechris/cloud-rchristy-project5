@@ -192,7 +192,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/sls-wyr-game/dev/1570890775230-2019-10-12T14:32:55.230Z/AddUser.zip"
+                "S3Key": "serverless/sls-wyr-game/dev/1571134993458-2019-10-15T10:23:13.458Z/AddUser.zip"
               },
               "FunctionName": "sls-wyr-game-dev-AddUser",
               "Handler": "lambda/users/create.handler",
@@ -234,7 +234,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/sls-wyr-game/dev/1570890775230-2019-10-12T14:32:55.230Z/UpdateUser.zip"
+                "S3Key": "serverless/sls-wyr-game/dev/1571134993458-2019-10-15T10:23:13.458Z/UpdateUser.zip"
               },
               "FunctionName": "sls-wyr-game-dev-UpdateUser",
               "Handler": "lambda/users/update.handler",
@@ -276,7 +276,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/sls-wyr-game/dev/1570890775230-2019-10-12T14:32:55.230Z/AddQuestion.zip"
+                "S3Key": "serverless/sls-wyr-game/dev/1571134993458-2019-10-15T10:23:13.458Z/AddQuestion.zip"
               },
               "FunctionName": "sls-wyr-game-dev-AddQuestion",
               "Handler": "lambda/questions/create.handler",
@@ -318,7 +318,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/sls-wyr-game/dev/1570890775230-2019-10-12T14:32:55.230Z/UpdateQuestion.zip"
+                "S3Key": "serverless/sls-wyr-game/dev/1571134993458-2019-10-15T10:23:13.458Z/UpdateQuestion.zip"
               },
               "FunctionName": "sls-wyr-game-dev-UpdateQuestion",
               "Handler": "lambda/questions/update.handler",
@@ -360,7 +360,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/sls-wyr-game/dev/1570890775230-2019-10-12T14:32:55.230Z/AddAnswer.zip"
+                "S3Key": "serverless/sls-wyr-game/dev/1571134993458-2019-10-15T10:23:13.458Z/AddAnswer.zip"
               },
               "FunctionName": "sls-wyr-game-dev-AddAnswer",
               "Handler": "lambda/users/update.answer",
@@ -402,7 +402,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/sls-wyr-game/dev/1570890775230-2019-10-12T14:32:55.230Z/GetUsers.zip"
+                "S3Key": "serverless/sls-wyr-game/dev/1571134993458-2019-10-15T10:23:13.458Z/GetUsers.zip"
               },
               "FunctionName": "sls-wyr-game-dev-GetUsers",
               "Handler": "lambda/users/list.handler",
@@ -444,7 +444,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/sls-wyr-game/dev/1570890775230-2019-10-12T14:32:55.230Z/GetQuestions.zip"
+                "S3Key": "serverless/sls-wyr-game/dev/1571134993458-2019-10-15T10:23:13.458Z/GetQuestions.zip"
               },
               "FunctionName": "sls-wyr-game-dev-GetQuestions",
               "Handler": "lambda/questions/list.handler",
@@ -1033,7 +1033,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1570890758390": {
+          "ApiGatewayDeployment1571134978643": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -2379,7 +2379,7 @@
   },
   "package": {
     "individually": true,
-    "artifactDirectoryName": "serverless/sls-wyr-game/dev/1570890775230-2019-10-12T14:32:55.230Z",
+    "artifactDirectoryName": "serverless/sls-wyr-game/dev/1571134993458-2019-10-15T10:23:13.458Z",
     "artifact": ""
   }
 }

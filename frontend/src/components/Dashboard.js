@@ -1,19 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { handleInitialData } from  '../actions/shared'
-import { handleAddUser } from '../actions/authedUser'
 
 function mapStateToProps({ authedUser, users, questions }) {
-  console.log('LOOK ONE: ', questions)
-  console.log('LOOK TWO: ', users)
+  console.log('USERS ', authedUser, questions, users)
   let answers;
   authedUser ? answers = users[authedUser].answers : answers = []
-  console.log('ANSWERS LOOKIE: ', answers)
+  console.log('THE UNDEFINED ARRAAY: ', answers)
   const answeredQs = answers.map((id) => questions[id])
     .sort((a,b) => b.timestamp - a.timestamp)
-  // const answeredQs = []
-  // const unansweredQs = []
+
   const unansweredQs = Object.keys(questions)
     .filter((id) => !answers.includes(id))
     .map((id) => questions[id])
@@ -26,14 +22,6 @@ function mapStateToProps({ authedUser, users, questions }) {
 }
 
 class Dashboard extends React.Component {
-  componentDidMount() {
-    this.props.dispatch(handleAddUser({
-      id: this.props.name,
-      name: this.props.name,
-      avatarURL: this.props.picture
-    }))
-    this.props.dispatch(handleInitialData())
-  }
   state = {
     showAnswered: false
   }

@@ -18,42 +18,6 @@ function addQuestion(question) {
   }
 }
 
-function generateUID () {
-  return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
-}
-
-function formatQuestion ({ optionOneText, optionTwoText, author }) {
-  return {
-    id: generateUID(),
-    timestamp: Date.now(),
-    author,
-    optionOne: {
-      votes: [],
-      text: optionOneText,
-    },
-    optionTwo: {
-      votes: [],
-      text: optionTwoText,
-    }
-  }
-}
-
-export function handleAddQuestion(question) {
-  return (dispatch, getState) => {
-    // const { authedUser } = getState()
-    dispatch(showLoading())
-    console.log('THIS IS THE QUESTION: ', question)
-    return saveQuestion(formatQuestion(question))
-      .then(() => dispatch(addQuestion(formatQuestion(question))))
-      .then(() => dispatch(hideLoading()))
-  }
-}
-
-
-
-
-/*
-
 export function handleAddQuestion(question) {
   return (dispatch, getState) => {
     const { authedUser } = getState()
@@ -66,25 +30,3 @@ export function handleAddQuestion(question) {
       .then(() => dispatch(hideLoading()))
   }
 }
-
-
-  {
-    optionOneText: this.state.optionOne,
-    optionTwoText: this.state.optionTwo,
-    author: this.props.authedUser
-  }
-
-  {
-    id: generateUID(),
-    timestamp: Date.now(),
-    author,
-    optionOne: {
-      votes: [],
-      text: optionOneText,
-    },
-    optionTwo: {
-      votes: [],
-      text: optionTwoText,
-    }
-  }
- */

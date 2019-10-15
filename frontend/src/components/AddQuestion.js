@@ -3,6 +3,9 @@ import { connect } from 'react-redux'
 import { handleAddQuestion } from '../actions/questions'
 
 class AddQuestion extends Component {
+  componentDidMount() {
+    console.log('Hello there cutie. AddQuestion')
+  }
   state = {
     optionOne: '',
     optionTwo: ''
