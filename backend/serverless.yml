@@ -25,6 +25,23 @@ provider:
   iamRoleStatements:
     - Effect: Allow
       Action:
+        - xray:GetSamplingRules
+        - xray:GetSamplingTargets
+        - xray:GetSamplingStatisticSummaries
+        - xray:BatchGetTraces
+        - xray:GetServiceGraph
+        - xray:GetTraceGraph
+        - xray:GetTraceSummaries
+        - xray:GetGroups
+        - xray:GetGroup
+        - xray:PutTraceSegments
+        - xray:PutTelemetryRecords
+        - xray:GetSamplingRules
+        - xray:GetSamplingTargets
+        - xray:GetSamplingStatisticSummaries
+      Resource: '*'
+    - Effect: Allow
+      Action:
         - dynamodb:Query
         - dynamodb:Scan
         - dynamodb:GetItem
