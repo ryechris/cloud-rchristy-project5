@@ -1,6 +1,10 @@
+import * as AWSXRay from 'aws-xray-sdk'
+
 const AWS = require('aws-sdk');
 
-const ddbdclient = new AWS.DynamoDB.DocumentClient();
+const XAWS = AWSXRay.captureAWS(AWS)
+
+const ddbdclient = new XAWS.DynamoDB.DocumentClient();
 
 /* const { authedUser, id, answer } = newAnswer */
 exports.handler = async (event) => {

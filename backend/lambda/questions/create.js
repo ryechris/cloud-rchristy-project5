@@ -1,6 +1,10 @@
+import * as AWSXRay from 'aws-xray-sdk'
+
 const AWS = require('aws-sdk');
 
-const ddbdclient = new AWS.DynamoDB.DocumentClient();
+const XAWS = AWSXRay.captureAWS(AWS)
+
+const ddbdclient = new XAWS.DynamoDB.DocumentClient();
 
 exports.handler = async (event) => {
   console.log('LOOKIE LOOKIE HERE TOO event.body: ', event.body)
@@ -39,4 +43,3 @@ exports.handler = async (event) => {
   }
 
 };
-  

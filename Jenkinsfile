@@ -12,7 +12,7 @@ pipeline {
         sh 'sudo npm install -g serverless'
       }
     }
-    stage('Serverless Deploy V') {
+    stage('Serverless Deploy') {
       steps {
         dir("/var/lib/jenkins/workspace/cloud-rchristy-project5_master/backend") {
           sh '''

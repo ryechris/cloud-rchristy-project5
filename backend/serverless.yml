@@ -19,6 +19,9 @@ provider:
   environment:
     USERS_TABLE: sls-wyr-users-dev
     QUESTIONS_TABLE: sls-wyr-questions-dev
+  tracing:
+    lambda: true
+    apiGateway: true
   iamRoleStatements:
     - Effect: Allow
       Action:
