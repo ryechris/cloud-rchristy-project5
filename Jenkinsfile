@@ -13,6 +13,7 @@ pipeline {
         dir("/var/lib/jenkins/workspace/cloud-rchristy-project5_master/backend") {
           sh '''
             export PATH=/var/lib/jenkins:$PATH
+            npm install
             serverless deploy -v
             '''
         }
