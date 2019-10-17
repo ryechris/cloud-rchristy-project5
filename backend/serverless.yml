@@ -22,25 +22,25 @@ provider:
   tracing:
     lambda: true
     apiGateway: true
-  iamRoleStatements:
-    - Effect: Allow
-      Action:
-        - dynamodb:Query
-        - dynamodb:Scan
-        - dynamodb:GetItem
-        - dynamodb:PutItem
-        - dynamodb:UpdateItem
-        - dynamodb:DeleteItem
-      Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.USERS_TABLE}"
-    - Effect: Allow
-      Action:
-        - dynamodb:Query
-        - dynamodb:Scan
-        - dynamodb:GetItem
-        - dynamodb:PutItem
-        - dynamodb:UpdateItem
-        - dynamodb:DeleteItem
-      Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.QUESTIONS_TABLE}"
+  # iamRoleStatements:
+  #   - Effect: Allow
+  #     Action:
+  #       - dynamodb:Query
+  #       - dynamodb:Scan
+  #       - dynamodb:GetItem
+  #       - dynamodb:PutItem
+  #       - dynamodb:UpdateItem
+  #       - dynamodb:DeleteItem
+  #     Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.USERS_TABLE}"
+  #   - Effect: Allow
+  #     Action:
+  #       - dynamodb:Query
+  #       - dynamodb:Scan
+  #       - dynamodb:GetItem
+  #       - dynamodb:PutItem
+  #       - dynamodb:UpdateItem
+  #       - dynamodb:DeleteItem
+  #     Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.QUESTIONS_TABLE}"
 
 custom:
   documentation:
@@ -52,7 +52,7 @@ custom:
 
 functions:
   AddUser:
-    handler: lambda/users/create.handler
+    handler: lambda/users/create2.handler
     events:
       - http:
           method: post
@@ -82,7 +82,7 @@ functions:
         Resource: '*'
 
   UpdateUser:
-    handler: lambda/users/update.handler
+    handler: lambda/users/update2.handler
     events:
       - http:
           method: patch
@@ -112,7 +112,7 @@ functions:
         Resource: '*'
 
   AddQuestion:
-    handler: lambda/questions/create.handler
+    handler: lambda/questions/create2.handler
     events:
       - http:
           method: post
@@ -142,7 +142,7 @@ functions:
         Resource: '*'
 
   UpdateQuestion:
-    handler: lambda/questions/update.handler
+    handler: lambda/questions/update2.handler
     events:
       - http:
           method: patch
@@ -172,7 +172,7 @@ functions:
         Resource: '*'
 
   AddAnswer:
-    handler: lambda/users/update.answer
+    handler: lambda/users/update2.answer
     events:
       - http:
           method: patch
@@ -202,7 +202,7 @@ functions:
         Resource: '*'
 
   GetUsers:
-    handler: lambda/users/list.handler
+    handler: lambda/users/list2.handler
     events:
       - http:
           method: get
@@ -233,7 +233,7 @@ functions:
         Resource: '*'
 
   GetQuestions:
-    handler: lambda/questions/list.handler
+    handler: lambda/questions/list2.handler
     events:
       - http:
           method: get

@@ -15,32 +15,10 @@
         "USERS_TABLE": "sls-wyr-users-dev",
         "QUESTIONS_TABLE": "sls-wyr-questions-dev"
       },
-      "iamRoleStatements": [
-        {
-          "Effect": "Allow",
-          "Action": [
-            "dynamodb:Query",
-            "dynamodb:Scan",
-            "dynamodb:GetItem",
-            "dynamodb:PutItem",
-            "dynamodb:UpdateItem",
-            "dynamodb:DeleteItem"
-          ],
-          "Resource": "arn:aws:dynamodb:us-east-2:*:table/sls-wyr-users-dev"
-        },
-        {
-          "Effect": "Allow",
-          "Action": [
-            "dynamodb:Query",
-            "dynamodb:Scan",
-            "dynamodb:GetItem",
-            "dynamodb:PutItem",
-            "dynamodb:UpdateItem",
-            "dynamodb:DeleteItem"
-          ],
-          "Resource": "arn:aws:dynamodb:us-east-2:*:table/sls-wyr-questions-dev"
-        }
-      ],
+      "tracing": {
+        "lambda": true,
+        "apiGateway": true
+      },
       "versionFunctions": true,
       "remoteFunctionData": null,
       "compiledCloudFormationTemplate": {
@@ -160,10 +138,14 @@
                         ]
                       },
                       {
-                        "$ref": "$[\"service\"][\"provider\"][\"iamRoleStatements\"][0]"
-                      },
-                      {
-                        "$ref": "$[\"service\"][\"provider\"][\"iamRoleStatements\"][1]"
+                        "Effect": "Allow",
+                        "Action": [
+                          "xray:PutTraceSegments",
+                          "xray:PutTelemetryRecords"
+                        ],
+                        "Resource": [
+                          "*"
+                        ]
                       }
                     ]
                   }
@@ -192,10 +174,10 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/sls-wyr-game/dev/1571134993458-2019-10-15T10:23:13.458Z/AddUser.zip"
+                "S3Key": "serverless/sls-wyr-game/dev/1571338335815-2019-10-17T18:52:15.815Z/AddUser.zip"
               },
               "FunctionName": "sls-wyr-game-dev-AddUser",
-              "Handler": "lambda/users/create.handler",
+              "Handler": "lambda/users/create2.handler",
               "MemorySize": 1024,
               "Role": {
                 "Fn::GetAtt": [
@@ -205,6 +187,9 @@
               },
               "Runtime": "nodejs10.x",
               "Timeout": 6,
+              "TracingConfig": {
+                "Mode": "Active"
+              },
               "Environment": {
                 "Variables": {
                   "USERS_TABLE": "sls-wyr-users-dev",
@@ -217,14 +202,14 @@
               "AddUserLogGroup"
             ]
           },
-          "AddUserLambdaVersionOQ98QLBNfZRsuggxic1daD2FX37QoPVccgpDhDvhAU": {
+          "AddUserLambdaVersionBY6Z8jtMjDxpVxXpE9JfEWjIygjkej3VCgtoVEI1U": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "AddUserLambdaFunction"
               },
-              "CodeSha256": "jkoStOnvuaSt5/2MmXmpPT0RZ52HN/3DsC8VhS0sLBU="
+              "CodeSha256": "upz7J/jAXQT5LCR/op8csxLa5sN5dlXFHXqSilf0h14="
             }
           },
           "UpdateUserLambdaFunction": {
@@ -234,10 +219,10 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/sls-wyr-game/dev/1571134993458-2019-10-15T10:23:13.458Z/UpdateUser.zip"
+                "S3Key": "serverless/sls-wyr-game/dev/1571338335815-2019-10-17T18:52:15.815Z/UpdateUser.zip"
               },
               "FunctionName": "sls-wyr-game-dev-UpdateUser",
-              "Handler": "lambda/users/update.handler",
+              "Handler": "lambda/users/update2.handler",
               "MemorySize": 1024,
               "Role": {
                 "Fn::GetAtt": [
@@ -247,6 +232,9 @@
               },
               "Runtime": "nodejs10.x",
               "Timeout": 6,
+              "TracingConfig": {
+                "Mode": "Active"
+              },
               "Environment": {
                 "Variables": {
                   "USERS_TABLE": "sls-wyr-users-dev",
@@ -259,14 +247,14 @@
               "UpdateUserLogGroup"
             ]
           },
-          "UpdateUserLambdaVersionmvr6UiiVkyA1pNYkbXdablQiSJD8ODUyzzf2tR7AOas": {
+          "UpdateUserLambdaVersionaDRR2zukVDLsubfSmIvcxkTz9mIT01S81NAQHOPer0g": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "UpdateUserLambdaFunction"
               },
-              "CodeSha256": "U4Tq4/X2eMbgoFuKywqKGa/9o5l3gqCpilAfMDaOya8="
+              "CodeSha256": "GWKN+G8aU04m9cetuulnxGT19ILdbLJ+9pYw16X/naY="
             }
           },
           "AddQuestionLambdaFunction": {
@@ -276,10 +264,10 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/sls-wyr-game/dev/1571134993458-2019-10-15T10:23:13.458Z/AddQuestion.zip"
+                "S3Key": "serverless/sls-wyr-game/dev/1571338335815-2019-10-17T18:52:15.815Z/AddQuestion.zip"
               },
               "FunctionName": "sls-wyr-game-dev-AddQuestion",
-              "Handler": "lambda/questions/create.handler",
+              "Handler": "lambda/questions/create2.handler",
               "MemorySize": 1024,
               "Role": {
                 "Fn::GetAtt": [
@@ -289,6 +277,9 @@
               },
               "Runtime": "nodejs10.x",
               "Timeout": 6,
+              "TracingConfig": {
+                "Mode": "Active"
+              },
               "Environment": {
                 "Variables": {
                   "USERS_TABLE": "sls-wyr-users-dev",
@@ -301,14 +292,14 @@
               "AddQuestionLogGroup"
             ]
           },
-          "AddQuestionLambdaVersionZUptsOquolPCicJmNzikOum7a5Re72DVb57WCrMa0w0": {
+          "AddQuestionLambdaVersionVYNFFMqHrJUkEgzhWqQDGcHDlu9anrZbrk88ESTn0ew": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "AddQuestionLambdaFunction"
               },
-              "CodeSha256": "I2kTLt+6ZOYWmZS0TODXVUPoDNlHQMwS0bzvYNGiOjA="
+              "CodeSha256": "pZSgBbUt+AdvwzNmCZRsNVV3BXWWPgI309Do1tEZ0uI="
             }
           },
           "UpdateQuestionLambdaFunction": {
@@ -318,10 +309,10 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/sls-wyr-game/dev/1571134993458-2019-10-15T10:23:13.458Z/UpdateQuestion.zip"
+                "S3Key": "serverless/sls-wyr-game/dev/1571338335815-2019-10-17T18:52:15.815Z/UpdateQuestion.zip"
               },
               "FunctionName": "sls-wyr-game-dev-UpdateQuestion",
-              "Handler": "lambda/questions/update.handler",
+              "Handler": "lambda/questions/update2.handler",
               "MemorySize": 1024,
               "Role": {
                 "Fn::GetAtt": [
@@ -331,6 +322,9 @@
               },
               "Runtime": "nodejs10.x",
               "Timeout": 6,
+              "TracingConfig": {
+                "Mode": "Active"
+              },
               "Environment": {
                 "Variables": {
                   "USERS_TABLE": "sls-wyr-users-dev",
@@ -343,14 +337,14 @@
               "UpdateQuestionLogGroup"
             ]
           },
-          "UpdateQuestionLambdaVersionq4dUDCfMYpu1CBs7yzx9HqO0WE1BCnR7gPsuCZoiZ3U": {
+          "UpdateQuestionLambdaVersiongbNahaSLSK9C5TVM9WqCgqsVmPp3yTfbP4SdDHT2fw": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "UpdateQuestionLambdaFunction"
               },
-              "CodeSha256": "owZ0dAgyoC7EAVpVy9eFOtTCbaeDohz/VF/r4VDNBIA="
+              "CodeSha256": "HKbTql8mhGOFnW36g2LIUYqDhSumDdpDNuYhaI8zx8E="
             }
           },
           "AddAnswerLambdaFunction": {
@@ -360,10 +354,10 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/sls-wyr-game/dev/1571134993458-2019-10-15T10:23:13.458Z/AddAnswer.zip"
+                "S3Key": "serverless/sls-wyr-game/dev/1571338335815-2019-10-17T18:52:15.815Z/AddAnswer.zip"
               },
               "FunctionName": "sls-wyr-game-dev-AddAnswer",
-              "Handler": "lambda/users/update.answer",
+              "Handler": "lambda/users/update2.answer",
               "MemorySize": 1024,
               "Role": {
                 "Fn::GetAtt": [
@@ -373,6 +367,9 @@
               },
               "Runtime": "nodejs10.x",
               "Timeout": 6,
+              "TracingConfig": {
+                "Mode": "Active"
+              },
               "Environment": {
                 "Variables": {
                   "USERS_TABLE": "sls-wyr-users-dev",
@@ -385,14 +382,14 @@
               "AddAnswerLogGroup"
             ]
           },
-          "AddAnswerLambdaVersionOCTyIYQFVqSkryWseSIUsTyXSVoxJRDaV1rOEDoeI": {
+          "AddAnswerLambdaVersionVvMvJ27WkpX0Pc3LdfgCezaxLeqQB1L33R5CVtLU": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "AddAnswerLambdaFunction"
               },
-              "CodeSha256": "U4Tq4/X2eMbgoFuKywqKGa/9o5l3gqCpilAfMDaOya8="
+              "CodeSha256": "GWKN+G8aU04m9cetuulnxGT19ILdbLJ+9pYw16X/naY="
             }
           },
           "GetUsersLambdaFunction": {
@@ -402,10 +399,10 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/sls-wyr-game/dev/1571134993458-2019-10-15T10:23:13.458Z/GetUsers.zip"
+                "S3Key": "serverless/sls-wyr-game/dev/1571338335815-2019-10-17T18:52:15.815Z/GetUsers.zip"
               },
               "FunctionName": "sls-wyr-game-dev-GetUsers",
-              "Handler": "lambda/users/list.handler",
+              "Handler": "lambda/users/list2.handler",
               "MemorySize": 1024,
               "Role": {
                 "Fn::GetAtt": [
@@ -415,6 +412,9 @@
               },
               "Runtime": "nodejs10.x",
               "Timeout": 6,
+              "TracingConfig": {
+                "Mode": "Active"
+              },
               "Environment": {
                 "Variables": {
                   "USERS_TABLE": "sls-wyr-users-dev",
@@ -427,14 +427,14 @@
               "GetUsersLogGroup"
             ]
           },
-          "GetUsersLambdaVersionJXosbG7e7UXLsq3dOikDSPo4YLJ4iK6A6ZhslaoA": {
+          "GetUsersLambdaVersionHcxmCugbib69I388EmLTwMGX5TZv4CPsVk5RmOtmVQ": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetUsersLambdaFunction"
               },
-              "CodeSha256": "3Tl+C7L36lMl5CMLYxlqxJy2+mGzI9MroRu3dk6aMJ4="
+              "CodeSha256": "2hN0+8QAPIxeYX0k/p0GXu1mnJONr7ORgr6lz/12ULs="
             }
           },
           "GetQuestionsLambdaFunction": {
@@ -444,10 +444,10 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/sls-wyr-game/dev/1571134993458-2019-10-15T10:23:13.458Z/GetQuestions.zip"
+                "S3Key": "serverless/sls-wyr-game/dev/1571338335815-2019-10-17T18:52:15.815Z/GetQuestions.zip"
               },
               "FunctionName": "sls-wyr-game-dev-GetQuestions",
-              "Handler": "lambda/questions/list.handler",
+              "Handler": "lambda/questions/list2.handler",
               "MemorySize": 1024,
               "Role": {
                 "Fn::GetAtt": [
@@ -457,6 +457,9 @@
               },
               "Runtime": "nodejs10.x",
               "Timeout": 6,
+              "TracingConfig": {
+                "Mode": "Active"
+              },
               "Environment": {
                 "Variables": {
                   "USERS_TABLE": "sls-wyr-users-dev",
@@ -469,14 +472,14 @@
               "GetQuestionsLogGroup"
             ]
           },
-          "GetQuestionsLambdaVersionuXdaNRINIFd90HYWJzTqqGlo8VCbgOLpiySqBSjak": {
+          "GetQuestionsLambdaVersionfj9Wa963GFE9ZheQqFKJNYmtbQRWlKBDXlxzzphmXc": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetQuestionsLambdaFunction"
               },
-              "CodeSha256": "W1fXXAcreGaQj6cUcc9gCyA/2FRsfS7P29Vfq0a/fFs="
+              "CodeSha256": "SB43N7UM8cXLtyRuh7JdL6Cu17ZdrHEOxqj8PzH4o+U="
             }
           },
           "ApiGatewayRestApi": {
@@ -1033,7 +1036,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1571134978643": {
+          "ApiGatewayDeployment1571338302611": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -1366,6 +1369,26 @@
                           "dynamodb:PutItem"
                         ],
                         "Resource": "arn:aws:dynamodb:us-east-2:*:table/sls-wyr-users-dev"
+                      },
+                      {
+                        "Effect": "Allow",
+                        "Action": [
+                          "xray:GetSamplingRules",
+                          "xray:GetSamplingTargets",
+                          "xray:GetSamplingStatisticSummaries",
+                          "xray:BatchGetTraces",
+                          "xray:GetServiceGraph",
+                          "xray:GetTraceGraph",
+                          "xray:GetTraceSummaries",
+                          "xray:GetGroups",
+                          "xray:GetGroup",
+                          "xray:PutTraceSegments",
+                          "xray:PutTelemetryRecords",
+                          "xray:GetSamplingRules",
+                          "xray:GetSamplingTargets",
+                          "xray:GetSamplingStatisticSummaries"
+                        ],
+                        "Resource": "*"
                       }
                     ]
                   }
@@ -1441,6 +1464,26 @@
                           "dynamodb:UpdateItem"
                         ],
                         "Resource": "arn:aws:dynamodb:us-east-2:*:table/sls-wyr-users-dev"
+                      },
+                      {
+                        "Effect": "Allow",
+                        "Action": [
+                          "xray:GetSamplingRules",
+                          "xray:GetSamplingTargets",
+                          "xray:GetSamplingStatisticSummaries",
+                          "xray:BatchGetTraces",
+                          "xray:GetServiceGraph",
+                          "xray:GetTraceGraph",
+                          "xray:GetTraceSummaries",
+                          "xray:GetGroups",
+                          "xray:GetGroup",
+                          "xray:PutTraceSegments",
+                          "xray:PutTelemetryRecords",
+                          "xray:GetSamplingRules",
+                          "xray:GetSamplingTargets",
+                          "xray:GetSamplingStatisticSummaries"
+                        ],
+                        "Resource": "*"
                       }
                     ]
                   }
@@ -1516,6 +1559,26 @@
                           "dynamodb:PutItem"
                         ],
                         "Resource": "arn:aws:dynamodb:us-east-2:*:table/sls-wyr-questions-dev"
+                      },
+                      {
+                        "Effect": "Allow",
+                        "Action": [
+                          "xray:GetSamplingRules",
+                          "xray:GetSamplingTargets",
+                          "xray:GetSamplingStatisticSummaries",
+                          "xray:BatchGetTraces",
+                          "xray:GetServiceGraph",
+                          "xray:GetTraceGraph",
+                          "xray:GetTraceSummaries",
+                          "xray:GetGroups",
+                          "xray:GetGroup",
+                          "xray:PutTraceSegments",
+                          "xray:PutTelemetryRecords",
+                          "xray:GetSamplingRules",
+                          "xray:GetSamplingTargets",
+                          "xray:GetSamplingStatisticSummaries"
+                        ],
+                        "Resource": "*"
                       }
                     ]
                   }
@@ -1591,6 +1654,26 @@
                           "dynamodb:UpdateItem"
                         ],
                         "Resource": "arn:aws:dynamodb:us-east-2:*:table/sls-wyr-questions-dev"
+                      },
+                      {
+                        "Effect": "Allow",
+                        "Action": [
+                          "xray:GetSamplingRules",
+                          "xray:GetSamplingTargets",
+                          "xray:GetSamplingStatisticSummaries",
+                          "xray:BatchGetTraces",
+                          "xray:GetServiceGraph",
+                          "xray:GetTraceGraph",
+                          "xray:GetTraceSummaries",
+                          "xray:GetGroups",
+                          "xray:GetGroup",
+                          "xray:PutTraceSegments",
+                          "xray:PutTelemetryRecords",
+                          "xray:GetSamplingRules",
+                          "xray:GetSamplingTargets",
+                          "xray:GetSamplingStatisticSummaries"
+                        ],
+                        "Resource": "*"
                       }
                     ]
                   }
@@ -1666,6 +1749,26 @@
                           "dynamodb:UpdateItem"
                         ],
                         "Resource": "arn:aws:dynamodb:us-east-2:*:table/sls-wyr-users-dev"
+                      },
+                      {
+                        "Effect": "Allow",
+                        "Action": [
+                          "xray:GetSamplingRules",
+                          "xray:GetSamplingTargets",
+                          "xray:GetSamplingStatisticSummaries",
+                          "xray:BatchGetTraces",
+                          "xray:GetServiceGraph",
+                          "xray:GetTraceGraph",
+                          "xray:GetTraceSummaries",
+                          "xray:GetGroups",
+                          "xray:GetGroup",
+                          "xray:PutTraceSegments",
+                          "xray:PutTelemetryRecords",
+                          "xray:GetSamplingRules",
+                          "xray:GetSamplingTargets",
+                          "xray:GetSamplingStatisticSummaries"
+                        ],
+                        "Resource": "*"
                       }
                     ]
                   }
@@ -1742,6 +1845,26 @@
                           "dynamodb:Scan"
                         ],
                         "Resource": "arn:aws:dynamodb:us-east-2:*:table/sls-wyr-users-dev"
+                      },
+                      {
+                        "Effect": "Allow",
+                        "Action": [
+                          "xray:GetSamplingRules",
+                          "xray:GetSamplingTargets",
+                          "xray:GetSamplingStatisticSummaries",
+                          "xray:BatchGetTraces",
+                          "xray:GetServiceGraph",
+                          "xray:GetTraceGraph",
+                          "xray:GetTraceSummaries",
+                          "xray:GetGroups",
+                          "xray:GetGroup",
+                          "xray:PutTraceSegments",
+                          "xray:PutTelemetryRecords",
+                          "xray:GetSamplingRules",
+                          "xray:GetSamplingTargets",
+                          "xray:GetSamplingStatisticSummaries"
+                        ],
+                        "Resource": "*"
                       }
                     ]
                   }
@@ -1818,6 +1941,26 @@
                           "dynamodb:Scan"
                         ],
                         "Resource": "arn:aws:dynamodb:us-east-2:*:table/sls-wyr-questions-dev"
+                      },
+                      {
+                        "Effect": "Allow",
+                        "Action": [
+                          "xray:GetSamplingRules",
+                          "xray:GetSamplingTargets",
+                          "xray:GetSamplingStatisticSummaries",
+                          "xray:BatchGetTraces",
+                          "xray:GetServiceGraph",
+                          "xray:GetTraceGraph",
+                          "xray:GetTraceSummaries",
+                          "xray:GetGroups",
+                          "xray:GetGroup",
+                          "xray:PutTraceSegments",
+                          "xray:PutTelemetryRecords",
+                          "xray:GetSamplingRules",
+                          "xray:GetSamplingTargets",
+                          "xray:GetSamplingStatisticSummaries"
+                        ],
+                        "Resource": "*"
                       }
                     ]
                   }
@@ -1905,43 +2048,43 @@
           "AddUserLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "AddUserLambdaVersionOQ98QLBNfZRsuggxic1daD2FX37QoPVccgpDhDvhAU"
+              "Ref": "AddUserLambdaVersionBY6Z8jtMjDxpVxXpE9JfEWjIygjkej3VCgtoVEI1U"
             }
           },
           "UpdateUserLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "UpdateUserLambdaVersionmvr6UiiVkyA1pNYkbXdablQiSJD8ODUyzzf2tR7AOas"
+              "Ref": "UpdateUserLambdaVersionaDRR2zukVDLsubfSmIvcxkTz9mIT01S81NAQHOPer0g"
             }
           },
           "AddQuestionLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "AddQuestionLambdaVersionZUptsOquolPCicJmNzikOum7a5Re72DVb57WCrMa0w0"
+              "Ref": "AddQuestionLambdaVersionVYNFFMqHrJUkEgzhWqQDGcHDlu9anrZbrk88ESTn0ew"
             }
           },
           "UpdateQuestionLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "UpdateQuestionLambdaVersionq4dUDCfMYpu1CBs7yzx9HqO0WE1BCnR7gPsuCZoiZ3U"
+              "Ref": "UpdateQuestionLambdaVersiongbNahaSLSK9C5TVM9WqCgqsVmPp3yTfbP4SdDHT2fw"
             }
           },
           "AddAnswerLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "AddAnswerLambdaVersionOCTyIYQFVqSkryWseSIUsTyXSVoxJRDaV1rOEDoeI"
+              "Ref": "AddAnswerLambdaVersionVvMvJ27WkpX0Pc3LdfgCezaxLeqQB1L33R5CVtLU"
             }
           },
           "GetUsersLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetUsersLambdaVersionJXosbG7e7UXLsq3dOikDSPo4YLJ4iK6A6ZhslaoA"
+              "Ref": "GetUsersLambdaVersionHcxmCugbib69I388EmLTwMGX5TZv4CPsVk5RmOtmVQ"
             }
           },
           "GetQuestionsLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetQuestionsLambdaVersionuXdaNRINIFd90HYWJzTqqGlo8VCbgOLpiySqBSjak"
+              "Ref": "GetQuestionsLambdaVersionfj9Wa963GFE9ZheQqFKJNYmtbQRWlKBDXlxzzphmXc"
             }
           },
           "ServiceEndpoint": {
@@ -1965,6 +2108,12 @@
                   "/dev"
                 ]
               ]
+            }
+          },
+          "AwsDocApiId": {
+            "Description": "API ID",
+            "Value": {
+              "Ref": "ApiGatewayRestApi"
             }
           }
         }
@@ -1998,6 +2147,17 @@
       },
       "vpc": {}
     },
+    "custom": {
+      "documentation": {
+        "api": {
+          "info": {
+            "version": "v1.0.0",
+            "title": "React WYR",
+            "description": "API for a React WYR app."
+          }
+        }
+      }
+    },
     "plugins": [
       "serverless-webpack",
       "serverless-reqvalidator-plugin",
@@ -2007,7 +2167,7 @@
     "pluginsData": {},
     "functions": {
       "AddUser": {
-        "handler": "lambda/users/create.handler",
+        "handler": "lambda/users/create2.handler",
         "events": [
           {
             "http": {
@@ -2039,6 +2199,9 @@
         "iamRoleStatements": [
           {
             "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"AddUserIamRoleLambdaExecution\"][\"Properties\"][\"Policies\"][0][\"PolicyDocument\"][\"Statement\"][1]"
+          },
+          {
+            "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"AddUserIamRoleLambdaExecution\"][\"Properties\"][\"Policies\"][0][\"PolicyDocument\"][\"Statement\"][2]"
           }
         ],
         "name": "sls-wyr-game-dev-AddUser",
@@ -2051,7 +2214,7 @@
         "vpc": {}
       },
       "UpdateUser": {
-        "handler": "lambda/users/update.handler",
+        "handler": "lambda/users/update2.handler",
         "events": [
           {
             "http": {
@@ -2083,6 +2246,9 @@
         "iamRoleStatements": [
           {
             "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"UpdateUserIamRoleLambdaExecution\"][\"Properties\"][\"Policies\"][0][\"PolicyDocument\"][\"Statement\"][1]"
+          },
+          {
+            "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"UpdateUserIamRoleLambdaExecution\"][\"Properties\"][\"Policies\"][0][\"PolicyDocument\"][\"Statement\"][2]"
           }
         ],
         "name": "sls-wyr-game-dev-UpdateUser",
@@ -2095,7 +2261,7 @@
         "vpc": {}
       },
       "AddQuestion": {
-        "handler": "lambda/questions/create.handler",
+        "handler": "lambda/questions/create2.handler",
         "events": [
           {
             "http": {
@@ -2127,6 +2293,9 @@
         "iamRoleStatements": [
           {
             "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"AddQuestionIamRoleLambdaExecution\"][\"Properties\"][\"Policies\"][0][\"PolicyDocument\"][\"Statement\"][1]"
+          },
+          {
+            "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"AddQuestionIamRoleLambdaExecution\"][\"Properties\"][\"Policies\"][0][\"PolicyDocument\"][\"Statement\"][2]"
           }
         ],
         "name": "sls-wyr-game-dev-AddQuestion",
@@ -2139,7 +2308,7 @@
         "vpc": {}
       },
       "UpdateQuestion": {
-        "handler": "lambda/questions/update.handler",
+        "handler": "lambda/questions/update2.handler",
         "events": [
           {
             "http": {
@@ -2171,6 +2340,9 @@
         "iamRoleStatements": [
           {
             "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"UpdateQuestionIamRoleLambdaExecution\"][\"Properties\"][\"Policies\"][0][\"PolicyDocument\"][\"Statement\"][1]"
+          },
+          {
+            "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"UpdateQuestionIamRoleLambdaExecution\"][\"Properties\"][\"Policies\"][0][\"PolicyDocument\"][\"Statement\"][2]"
           }
         ],
         "name": "sls-wyr-game-dev-UpdateQuestion",
@@ -2183,7 +2355,7 @@
         "vpc": {}
       },
       "AddAnswer": {
-        "handler": "lambda/users/update.answer",
+        "handler": "lambda/users/update2.answer",
         "events": [
           {
             "http": {
@@ -2215,6 +2387,9 @@
         "iamRoleStatements": [
           {
             "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"AddAnswerIamRoleLambdaExecution\"][\"Properties\"][\"Policies\"][0][\"PolicyDocument\"][\"Statement\"][1]"
+          },
+          {
+            "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"AddAnswerIamRoleLambdaExecution\"][\"Properties\"][\"Policies\"][0][\"PolicyDocument\"][\"Statement\"][2]"
           }
         ],
         "name": "sls-wyr-game-dev-AddAnswer",
@@ -2227,7 +2402,7 @@
         "vpc": {}
       },
       "GetUsers": {
-        "handler": "lambda/users/list.handler",
+        "handler": "lambda/users/list2.handler",
         "events": [
           {
             "http": {
@@ -2259,6 +2434,9 @@
         "iamRoleStatements": [
           {
             "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"GetUsersIamRoleLambdaExecution\"][\"Properties\"][\"Policies\"][0][\"PolicyDocument\"][\"Statement\"][1]"
+          },
+          {
+            "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"GetUsersIamRoleLambdaExecution\"][\"Properties\"][\"Policies\"][0][\"PolicyDocument\"][\"Statement\"][2]"
           }
         ],
         "name": "sls-wyr-game-dev-GetUsers",
@@ -2271,7 +2449,7 @@
         "vpc": {}
       },
       "GetQuestions": {
-        "handler": "lambda/questions/list.handler",
+        "handler": "lambda/questions/list2.handler",
         "events": [
           {
             "http": {
@@ -2303,6 +2481,9 @@
         "iamRoleStatements": [
           {
             "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"GetQuestionsIamRoleLambdaExecution\"][\"Properties\"][\"Policies\"][0][\"PolicyDocument\"][\"Statement\"][1]"
+          },
+          {
+            "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"GetQuestionsIamRoleLambdaExecution\"][\"Properties\"][\"Policies\"][0][\"PolicyDocument\"][\"Statement\"][2]"
           }
         ],
         "name": "sls-wyr-game-dev-GetQuestions",
@@ -2379,7 +2560,7 @@
   },
   "package": {
     "individually": true,
-    "artifactDirectoryName": "serverless/sls-wyr-game/dev/1571134993458-2019-10-15T10:23:13.458Z",
+    "artifactDirectoryName": "serverless/sls-wyr-game/dev/1571338335815-2019-10-17T18:52:15.815Z",
     "artifact": ""
   }
 }
