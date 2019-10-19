@@ -49,7 +49,7 @@ export class QAccess {
           UpdateExpression: 'SET #option.votes = list_append(#option.votes, :answerer)',
           ReturnValues: 'ALL_NEW'
         };
-    const result = await ddbdclient.update(params).promise();
+    const result = await this.ddbdclient.update(params).promise();
     const attributes = result.Attributes;
     return attributes;
   }
@@ -59,7 +59,7 @@ export class QAccess {
       TableName: this.questionsTable,
       Item: newQ
     }
-    await ddbdclient.put(params, (error) => {
+    await this.ddbdclient.put(params, (error) => {
       if (error) {
         console.log('THE ERROR LOOKIE HERE CMON: ', error)
         const reply = {

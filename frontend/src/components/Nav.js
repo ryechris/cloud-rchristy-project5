@@ -2,9 +2,6 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 class Nav extends React.Component {
-  componentDidMount() {
-    console.log('Hello there FROM NAV.')
-  }
   render() {
     return (
       <nav className='nav'>
@@ -22,6 +19,11 @@ class Nav extends React.Component {
           <li>
             <NavLink to='/add' activeClassName='active'>
               Post a Question
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to='/images' activeClassName='active'>
+              BETA: upload an image
             </NavLink>
           </li>
           { (this.props.user)

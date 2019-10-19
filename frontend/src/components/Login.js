@@ -3,9 +3,6 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
 class Login extends Component {
-  componentDidMount() {
-    console.log('Hello there from LOGIN.')
-  }
   render() {
     const { authedUser } = this.props
     // https://reactraining.com/react-router/web/example/auth-workflow

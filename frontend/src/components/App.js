@@ -10,6 +10,7 @@ import Question from './Question'
 import PrivateRoute from './PrivateRoute'
 import Login from './Login'
 import AuthButton from './AuthButton'
+import Images from './Images'
 import LoadingBar from 'react-redux-loading'
 import { handleInitialData } from  '../actions/shared'
 
@@ -32,6 +33,7 @@ class App extends Component {
                   <PrivateRoute path='/leaderboard' component={Leaderboard} />
                   <PrivateRoute path='/questions/:id' component={Question} />
                   <PrivateRoute path='/add' component={AddQuestion} />
+                  <PrivateRoute path='/images' component={Images} />
                   <Route path='/callback' component={Callback} />
                   <Route path='/login' component={Login} />
                 </div>}

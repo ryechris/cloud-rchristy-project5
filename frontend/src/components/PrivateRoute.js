@@ -13,7 +13,7 @@ class PrivateRoute extends React.Component {
     const { nickname, picture } = user;
     console.log('LOOKIE LOOKIE HERE: ', nickname, picture)
     if (nickname) {
-      this.props.dispatch(handleAddUser({ nickname, picture}));
+      this.props.dispatch(handleAddUser({ nickname, picture }));
     }
   }
   render() {

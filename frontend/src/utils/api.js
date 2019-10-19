@@ -72,6 +72,7 @@ function formattedQuestion(question) {
 
 export async function getInitialData() {
   const theusers = await Axios.get(`${apiEndpoint}/users`)
+  console.log('THEUSERS THEUSERS::: ', theusers)
   const users = theusers.data
   const theqs = await Axios.get(`${apiEndpoint}/questions`)
   const questions = theqs.data
