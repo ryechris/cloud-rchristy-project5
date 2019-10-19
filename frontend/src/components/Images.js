@@ -74,7 +74,9 @@ class Images extends React.Component {
     return (
       <ul>
         {this.state.images.map((id) => (
-          <li key={id} id={id} handleChange={this.props.handleChange}>{id.url}</li>
+          <div key={id} className='card'>
+            <img className='card-img' src={id.url}/>
+          </div>
         ))}
       </ul>
     )

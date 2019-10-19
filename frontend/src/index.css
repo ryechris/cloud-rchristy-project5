@@ -140,3 +140,18 @@ html {
   padding-left: 10%;
   padding-right: 10%;
 }
+
+.card {
+  margin-left: 10%;
+  margin-bottom: 2em;
+}
+
+.card-img {
+  height: 10em;
+  width: auto;
+}
+
+.form {
+  margin-left: 10%;
+  margin-bottom: 5em;
+}
