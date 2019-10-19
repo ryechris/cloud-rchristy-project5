@@ -9,10 +9,9 @@ export class IAccess {
     this.imagesTable = imagesTable;
   };
 
-  async function getBUrl(bucketName, imageId, event) {
+  async getBUrl(bucketName, imageId, event) {
     const timestamp = new Date().toISOString();
-    const {user} = JSON.parse(event.body);
-    console.log('json user: ', user)
+    const { user } = JSON.parse(event.body);
     const bUrl = `https://${bucketName}.s3.amazonaws.com/${imageId}`
     const newItem = {
       id: user,
@@ -26,17 +25,17 @@ export class IAccess {
     }
     await this.ddbdclient.put(params).promise()
     return bUrl
-  }
+  };
 
-  async function getPUrl(bucketName, imageId) {
+  async getPUrl(bucketName, imageId) {
     return this.s3.getSignedUrl('putObject', {
       Bucket: bucketName,
       Key: imageId,
       Expires: 300
     })
-  }
+  };
 
-  async function pullImages(user) {
+  async pullImages(user) {
     const params = {
       TableName: this.imagesTable,
       KeyConditionExpression: 'id = :hkey',
@@ -46,23 +45,16 @@ export class IAccess {
     };
     const result = await this.ddbdclient.query(params).promise();
     return result.Items
-  }
+  };
 
-  async function getImages(user) {
+  async getImages(user) {
     // check this here
-    return await pullImages(user);
-  }
+    return await this.pullImages(user);
+  };
 
-  async function userExists(user) {
-    const checker = await pullImages(user);
+  async userExists(user) {
+    const checker = await this.pullImages(user);
     return (checker.length > 0)
-  }
-
-
-
-
-
-
-
+  };
 
 }
