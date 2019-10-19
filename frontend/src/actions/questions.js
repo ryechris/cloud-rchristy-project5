@@ -11,22 +11,40 @@ export function receiveQuestions(questions) {
   }
 }
 
-function addQuestion(question) {
+export function addQuestion(question) {
   return {
     type: ADD_QUESTION,
     question
   }
 }
 
-export function handleAddQuestion(question) {
+function generateUID () {
+  return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
+}
+
+function formatQuestion ({ optionOneText, optionTwoText, author }) {
+  return {
+    id: generateUID(),
+    timestamp: Date.now(),
+    author,
+    optionOne: {
+      votes: [],
+      text: optionOneText,
+    },
+    optionTwo: {
+      votes: [],
+      text: optionTwoText,
+    }
+  }
+}
+
+export function handleAddQuestion(q) {
+  const question = formatQuestion(q);
   return (dispatch, getState) => {
-    const { authedUser } = getState()
     dispatch(showLoading())
     console.log('THIS IS THE QUESTION: ', question)
-    return saveQuestion({
-      ...question,
-      author: authedUser
-    }).then((question) => dispatch(addQuestion(question)))
+    return saveQuestion(question)
+      .then(() => dispatch(addQuestion(question)))
       .then(() => dispatch(hideLoading()))
   }
 }

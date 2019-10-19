@@ -254,7 +254,7 @@ functions:
         Resource: '*'
 
   AddImage:
-    handler: lambda/images/create.handler
+    handler: lambda/images/create2.handler
     events:
       - http:
           method: post
@@ -285,7 +285,7 @@ functions:
         Resource: '*'
 
   GetImages:
-    handler: lambda/images/querynotscan.handler
+    handler: lambda/images/querynotscan2.handler
     events:
       - http:
           method: get

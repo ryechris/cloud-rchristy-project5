@@ -21,7 +21,7 @@ class Images extends React.Component {
     evt.preventDefault()
     const objres = await Axios.post(`${apiEndpoint}/images`, {user: this.props.authedUser})
     console.log('OBJRES LOOK : ',  objres)
-    await fetch(objres.data.uploadUrl, {
+    await fetch(objres.data.pUrl, {
       method: 'PUT',
       body: this.state.file
     })
