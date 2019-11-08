@@ -6,7 +6,11 @@ It is a continuation of another one of call900913's React project: [https://gith
 
 And this app also has some cool features on the backend, such as X-Ray Tracing (courtesy of AWS).
 
+
+### Install and Launch
+
 To install the game, please do a git clone of this repository to download it into your machine.
+
 a. You can go to your Terminal or CLI and type in the following:
 ```
 git clone https://github.com/call900913/cloud-rchristy-project5

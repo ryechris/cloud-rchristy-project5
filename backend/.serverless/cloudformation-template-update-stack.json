@@ -163,7 +163,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/sls-wyr-game/dev/1571515240904-2019-10-19T20:00:40.904Z/AddUser.zip"
+          "S3Key": "serverless/sls-wyr-game/dev/1571538962168-2019-10-20T02:36:02.168Z/AddUser.zip"
         },
         "FunctionName": "sls-wyr-game-dev-AddUser",
         "Handler": "lambda/users/create2.handler",
@@ -193,14 +193,14 @@
         "AddUserLogGroup"
       ]
     },
-    "AddUserLambdaVersionflltvrjddMCWgSmrHZ3RYJb1gCHK8yO8wxnZgZD5A": {
+    "AddUserLambdaVersion4SFKxRSqwDt2CDlInhInXKdNBDpSdf0XI9oRRsjjt8": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "AddUserLambdaFunction"
         },
-        "CodeSha256": "upz7J/jAXQT5LCR/op8csxLa5sN5dlXFHXqSilf0h14="
+        "CodeSha256": "rfSjUoo/0990lV1I5dgK5KSLqqCqwJVDGOciTb3W6qQ="
       }
     },
     "UpdateUserLambdaFunction": {
@@ -210,7 +210,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/sls-wyr-game/dev/1571515240904-2019-10-19T20:00:40.904Z/UpdateUser.zip"
+          "S3Key": "serverless/sls-wyr-game/dev/1571538962168-2019-10-20T02:36:02.168Z/UpdateUser.zip"
         },
         "FunctionName": "sls-wyr-game-dev-UpdateUser",
         "Handler": "lambda/users/update2.handler",
@@ -240,14 +240,14 @@
         "UpdateUserLogGroup"
       ]
     },
-    "UpdateUserLambdaVersiongPzCXg1rXGcDra4ExpZiYRG8R7OIZoPEKjZmH54HYw": {
+    "UpdateUserLambdaVersion1cNqpPhgdKQZhiFQRcVQPMIVfPNG0jJ9upsoEfCA": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "UpdateUserLambdaFunction"
         },
-        "CodeSha256": "GWKN+G8aU04m9cetuulnxGT19ILdbLJ+9pYw16X/naY="
+        "CodeSha256": "bb0v/1RQRwwJIVeDSgWeq7pWRJFi5OD52nm2O0QLUPU="
       }
     },
     "AddQuestionLambdaFunction": {
@@ -257,7 +257,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/sls-wyr-game/dev/1571515240904-2019-10-19T20:00:40.904Z/AddQuestion.zip"
+          "S3Key": "serverless/sls-wyr-game/dev/1571538962168-2019-10-20T02:36:02.168Z/AddQuestion.zip"
         },
         "FunctionName": "sls-wyr-game-dev-AddQuestion",
         "Handler": "lambda/questions/create2.handler",
@@ -304,7 +304,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/sls-wyr-game/dev/1571515240904-2019-10-19T20:00:40.904Z/UpdateQuestion.zip"
+          "S3Key": "serverless/sls-wyr-game/dev/1571538962168-2019-10-20T02:36:02.168Z/UpdateQuestion.zip"
         },
         "FunctionName": "sls-wyr-game-dev-UpdateQuestion",
         "Handler": "lambda/questions/update2.handler",
@@ -351,7 +351,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/sls-wyr-game/dev/1571515240904-2019-10-19T20:00:40.904Z/AddAnswer.zip"
+          "S3Key": "serverless/sls-wyr-game/dev/1571538962168-2019-10-20T02:36:02.168Z/AddAnswer.zip"
         },
         "FunctionName": "sls-wyr-game-dev-AddAnswer",
         "Handler": "lambda/users/update2.answer",
@@ -381,14 +381,14 @@
         "AddAnswerLogGroup"
       ]
     },
-    "AddAnswerLambdaVersionimJKxiGsBjtwxOLqcTFaPbrSyMjcDuHVqrlD1vTOM": {
+    "AddAnswerLambdaVersionaWkwVU0MnbqAbzoTdvGTDamK1AteIh0pl1LBkdmiPw": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "AddAnswerLambdaFunction"
         },
-        "CodeSha256": "GWKN+G8aU04m9cetuulnxGT19ILdbLJ+9pYw16X/naY="
+        "CodeSha256": "bb0v/1RQRwwJIVeDSgWeq7pWRJFi5OD52nm2O0QLUPU="
       }
     },
     "GetUsersLambdaFunction": {
@@ -398,7 +398,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/sls-wyr-game/dev/1571515240904-2019-10-19T20:00:40.904Z/GetUsers.zip"
+          "S3Key": "serverless/sls-wyr-game/dev/1571538962168-2019-10-20T02:36:02.168Z/GetUsers.zip"
         },
         "FunctionName": "sls-wyr-game-dev-GetUsers",
         "Handler": "lambda/users/list2.handler",
@@ -428,14 +428,14 @@
         "GetUsersLogGroup"
       ]
     },
-    "GetUsersLambdaVersionGTMLOKwhSgvLp2aBu3rMSfNB0wmZnjxQwkaO3n4nUU": {
+    "GetUsersLambdaVersion5dPYLqkrtoU1klMug4yWzvsAj8O03ZuZzzJNUIKsY": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetUsersLambdaFunction"
         },
-        "CodeSha256": "2hN0+8QAPIxeYX0k/p0GXu1mnJONr7ORgr6lz/12ULs="
+        "CodeSha256": "XLbYBXx4WxCVXVlCD/JQ5bwGjEbaZbaX7xNqVE6/1M8="
       }
     },
     "GetQuestionsLambdaFunction": {
@@ -445,7 +445,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/sls-wyr-game/dev/1571515240904-2019-10-19T20:00:40.904Z/GetQuestions.zip"
+          "S3Key": "serverless/sls-wyr-game/dev/1571538962168-2019-10-20T02:36:02.168Z/GetQuestions.zip"
         },
         "FunctionName": "sls-wyr-game-dev-GetQuestions",
         "Handler": "lambda/questions/list2.handler",
@@ -492,7 +492,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/sls-wyr-game/dev/1571515240904-2019-10-19T20:00:40.904Z/AddImage.zip"
+          "S3Key": "serverless/sls-wyr-game/dev/1571538962168-2019-10-20T02:36:02.168Z/AddImage.zip"
         },
         "FunctionName": "sls-wyr-game-dev-AddImage",
         "Handler": "lambda/images/create2.handler",
@@ -539,7 +539,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/sls-wyr-game/dev/1571515240904-2019-10-19T20:00:40.904Z/GetImages.zip"
+          "S3Key": "serverless/sls-wyr-game/dev/1571538962168-2019-10-20T02:36:02.168Z/GetImages.zip"
         },
         "FunctionName": "sls-wyr-game-dev-GetImages",
         "Handler": "lambda/images/querynotscan2.handler",
@@ -1367,7 +1367,7 @@
         }
       }
     },
-    "ApiGatewayDeployment1571515204453": {
+    "ApiGatewayDeployment1571538927863": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -2741,13 +2741,13 @@
     "AddUserLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "AddUserLambdaVersionflltvrjddMCWgSmrHZ3RYJb1gCHK8yO8wxnZgZD5A"
+        "Ref": "AddUserLambdaVersion4SFKxRSqwDt2CDlInhInXKdNBDpSdf0XI9oRRsjjt8"
       }
     },
     "UpdateUserLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "UpdateUserLambdaVersiongPzCXg1rXGcDra4ExpZiYRG8R7OIZoPEKjZmH54HYw"
+        "Ref": "UpdateUserLambdaVersion1cNqpPhgdKQZhiFQRcVQPMIVfPNG0jJ9upsoEfCA"
       }
     },
     "AddQuestionLambdaFunctionQualifiedArn": {
@@ -2765,13 +2765,13 @@
     "AddAnswerLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "AddAnswerLambdaVersionimJKxiGsBjtwxOLqcTFaPbrSyMjcDuHVqrlD1vTOM"
+        "Ref": "AddAnswerLambdaVersionaWkwVU0MnbqAbzoTdvGTDamK1AteIh0pl1LBkdmiPw"
       }
     },
     "GetUsersLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetUsersLambdaVersionGTMLOKwhSgvLp2aBu3rMSfNB0wmZnjxQwkaO3n4nUU"
+        "Ref": "GetUsersLambdaVersion5dPYLqkrtoU1klMug4yWzvsAj8O03ZuZzzJNUIKsY"
       }
     },
     "GetQuestionsLambdaFunctionQualifiedArn": {

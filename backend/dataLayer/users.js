@@ -7,7 +7,7 @@ export class UserAccess {
     this.ddbdclient = new XAWS.DynamoDB.DocumentClient();
     this.usersTable = usersTable;
   };
-  
+
   async getUserList() {
     console.log('dataLayer, getting users')
     const params = {
@@ -42,7 +42,8 @@ export class UserAccess {
   }
 
   async addAnswer(newAnswer) {
-    const { authedUser, id, answer } = newAnswer;
+    const { ar, tbs } = newAnswer
+    const { authedUser } = ar
     const params = {
       TableName: this.usersTable,
       Key: {
@@ -52,9 +53,9 @@ export class UserAccess {
         '#s': 'answers'
       },
       ExpressionAttributeValues: {
-        ':a': answer
+        ':a': tbs
       },
-      UpdateExpression: 'SET #s.id = :a',
+      UpdateExpression: 'SET #s = :a',
       ReturnValues: 'ALL_NEW'
     };
     const result = await this.ddbdclient.update(params).promise();

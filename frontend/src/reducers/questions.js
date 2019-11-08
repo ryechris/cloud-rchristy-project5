@@ -16,13 +16,13 @@ export default function questions (state = {}, action) {
         [action.question.id]: action.question
       }
     case ADD_ANSWER :
-      const { answer, id, authedUser } = action
+      const { answer, id, authedUser } = action.ans.ar
       const question = state[id]
       const votesKey = answer + 'Votes'
-
+      console.log('ADD_ANSWER I. questions')
       return {
         ...state,
-        [action.id]: {
+        [id]: {
           ...question,
           [votesKey]: question[votesKey].concat([authedUser])
         }

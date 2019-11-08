@@ -10,14 +10,23 @@ const getPercentage = (count, total) => {
 
 class Question extends Component {
   handleAnswer = (answer) => {
-    const { question, authedUser } = this.props
+    const { question, authedUser, dataTBS } = this.props
     this.answered = true
-
-    this.props.dispatch(handleAddAnswer({
-      authedUser,
-      answer,
-      id: question.id
-    }))
+    console.log('TBS  PRE: ', dataTBS)
+    const tbs = {
+      ...dataTBS,
+      [question.id]: answer
+    }
+    const ans = {
+      ar: {
+        authedUser,
+        answer,
+        id: question.id
+      },
+      tbs
+    }
+    console.log('', tbs)
+    this.props.dispatch(handleAddAnswer(ans))
   }
 
   render() {
@@ -63,7 +72,7 @@ class Question extends Component {
   }
 }
 
-function mapStateToProps({ authedUser, questions, users }, { match }) {
+function mapStateToProps({ authedUser, questions, users, dataTBS }, { match }) {
   const { id } = match.params
   // next we grab the question with that id like so:
   const question = questions[id]
@@ -85,6 +94,7 @@ function mapStateToProps({ authedUser, questions, users }, { match }) {
     question,
     vote,
     authedUser,
+    dataTBS,
     authorAvatar: users[question.author].avatarURL
   }
 }

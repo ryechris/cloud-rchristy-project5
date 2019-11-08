@@ -6,15 +6,16 @@ function mapStateToProps({ authedUser, users, questions }) {
   console.log('USERS ', authedUser, questions, users)
   let answers;
   authedUser ? answers = users[authedUser].answers : answers = []
+  console.log('THE UNDEFINED USERS: ', users)
   console.log('THE UNDEFINED ARRAAY: ', answers)
   const answeredQs = answers.map((id) => questions[id])
     .sort((a,b) => b.timestamp - a.timestamp)
-
   const unansweredQs = Object.keys(questions)
     .filter((id) => !answers.includes(id))
     .map((id) => questions[id])
     .sort((a,b) => b.timestamp - a.timestamp)
-
+  console.log('ANSWERED QS: ', answeredQs)
+  console.log('UNANSWERED QS: ', unansweredQs)
   return {
     answeredQs,
     unansweredQs
@@ -41,6 +42,10 @@ class Dashboard extends React.Component {
     const { answeredQs, unansweredQs } = this.props
 
     const list = showAnswered === true ? answeredQs : unansweredQs
+    console.log('SHOWANSWRED? ', showAnswered)
+    console.log('SHOWANSWERED FUNCTION: ', this.showAnswered)
+    console.log('SHOWUNANSWERED FUNCTION: ', this.showUnanswered)
+    console.log('THE LIST, THE LIST: ', list)
 
     return (
       <div className='dashboard'>

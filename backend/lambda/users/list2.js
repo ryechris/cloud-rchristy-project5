@@ -11,6 +11,7 @@ const objectmaker = (arr) => {
 exports.handler = async (event) => {
   const theitems = await getUserList()
   const items = objectmaker(theitems)
+  console.log('THE ITEMS: ', items)
   return {
     statusCode: 200,
     headers: {

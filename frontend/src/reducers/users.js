@@ -6,6 +6,7 @@ import { ADD_USER } from '../actions/authedUser'
 export default function (state = {}, action) {
   switch(action.type) {
     case RECEIVE_USERS :
+      console.log('RECEIVE_USERS action.users', action.users)
       return {
         ...state,
         ...action.users
@@ -28,13 +29,14 @@ export default function (state = {}, action) {
         }
       }
     case ADD_ANSWER :
-      const user =  state[action.authedUser]
+      const user =  state[action.ans.ar.authedUser]
       console.log('ADDING ANSWER ADD ADD: ', state)
+      console.log('ADD_ANSWER III. users')
       return {
         ...state,
-        [action.authedUser]: {
+        [action.ans.ar.authedUser]: {
           ...user,
-          answers: user.answers.concat([action.id])
+          answers: user.answers.concat([action.ans.ar.id])
         }
       }
     default :

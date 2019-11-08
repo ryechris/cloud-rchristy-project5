@@ -24,7 +24,7 @@ export async function addUser(user) {
 
 export async function saveQuestionAnswer(answer) {
   console.log('inside sQA')
-  const response = await Axios.patch(`${apiEndpoint}/questions`, answer)
+  const response = await Axios.patch(`${apiEndpoint}/questions`, answer.ar)
   const response1 = await Axios.patch(`${apiEndpoint}/users/a`, answer)
   console.log('updating question answer... ', response)
   console.log('updating user answer... ', response1)
