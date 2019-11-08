@@ -7,7 +7,7 @@ It is a continuation of another one of call900913's React project: [https://gith
 And this app also has some cool features on the backend, such as X-Ray Tracing (courtesy of AWS).
 
 
-### Install and Launch
+## Install and Launch
 
 To install the game, please do a git clone of this repository to download it into your machine.
 
